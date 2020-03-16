@@ -118,3 +118,4 @@ namespace Reading_.Dyn
         public List<object> Bindings { get; set; }
         public View View { get; set; }
     }
+}
