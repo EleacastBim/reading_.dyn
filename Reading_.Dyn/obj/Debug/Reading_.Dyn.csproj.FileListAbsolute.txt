@@ -1,0 +1,14 @@
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\bin\Debug\Reading_.Dyn.exe.config
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\bin\Debug\Reading_.Dyn.exe
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\bin\Debug\Reading_.Dyn.pdb
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\Reading_.Dyn.csprojAssemblyReference.cache
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\MainWindow.g.cs
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\App.g.cs
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\Reading_.Dyn_MarkupCompile.cache
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\Reading_.Dyn_MarkupCompile.lref
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\MainWindow.baml
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\Reading_.Dyn.g.resources
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\Reading_.Dyn.Properties.Resources.resources
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\Reading_.Dyn.csproj.GenerateResource.cache
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\Reading_.Dyn.exe
+C:\Users\ecastillo\Documents\GitHub\reading_.dyn\Reading_.Dyn\obj\Debug\Reading_.Dyn.pdb

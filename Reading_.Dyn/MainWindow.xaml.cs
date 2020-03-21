@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -24,5 +25,27 @@ namespace Reading_.Dyn
         {
             InitializeComponent();
         }
+
+        private void btn_open_Click(object sender, RoutedEventArgs e)
+        {
+                  
+            // Configure open file dialog box
+            OpenFileDialog dlg = new OpenFileDialog();
+            
+            dlg.FileName = "Document";                  // Default file name
+            dlg.DefaultExt = ".dyn";                    // Default file extension
+            dlg.Filter = "Text documents (.dyn)|*.dyn"; // Filter files by extension
+
+            // Show open file dialog box
+            dlg.ShowDialog();
+
+            
+            // Open document 
+            string filename = dlg.FileName;
+            txt_box.Text = filename;
+                        
+        }
+
+        
     }
 }
