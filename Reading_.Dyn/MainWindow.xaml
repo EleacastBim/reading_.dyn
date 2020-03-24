@@ -5,10 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reading_.Dyn"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="995.798">
+    <Grid Margin="0,0,40,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="289*"/>
+            <ColumnDefinition Width="307*"/>
+        </Grid.ColumnDefinitions>
         <Button x:Name="btn_open" Content="Open File" HorizontalAlignment="Left" Margin="84,89,0,0" VerticalAlignment="Top" Width="132" Height="60" Click="btn_open_Click" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="txt_box" HorizontalAlignment="Left" Height="23" Margin="84,239,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="581"/>
+        <TextBox x:Name="txt_box" HorizontalAlignment="Left" Height="23" Margin="84,200,0,0" TextWrapping="Wrap" Text="Filepath" VerticalAlignment="Top" Width="483" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_box_ext" HorizontalAlignment="Left" Height="23" Margin="84,310,0,0" TextWrapping="Wrap" Text="changeExtension" VerticalAlignment="Top" Width="483" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_box_dirName" HorizontalAlignment="Left" Height="23" Margin="84,237,0,0" TextWrapping="Wrap" Text="dirName" VerticalAlignment="Top" Width="483" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txt_box_fileName" HorizontalAlignment="Left" Height="23" Margin="85,282,0,0" TextWrapping="Wrap" Text="FileName" VerticalAlignment="Top" Width="482" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="pantalla" HorizontalAlignment="Left" Height="336" Margin="142.647,28,0,0" TextWrapping="Wrap" Text="pantalla" VerticalAlignment="Top" Width="336" Grid.Column="1"/>
+        <TextBox x:Name="txt_box_nameppp" HorizontalAlignment="Left" Height="23" Margin="84,350,0,0" TextWrapping="Wrap" Text="Nameppp" VerticalAlignment="Top" Width="483" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

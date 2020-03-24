@@ -106,7 +106,7 @@ namespace Reading_.Dyn
     {
         public string Uuid { get; set; }
         public bool IsCustomNode { get; set; }
-        public object Description { get; set; }
+        public string Description { get; set; }
         public string Name { get; set; }
         public ElementResolver ElementResolver { get; set; }
         public List<object> Inputs { get; set; }
