@@ -45,16 +45,14 @@ namespace Reading_.Dyn
             // Show open file dialog box
             dlg.ShowDialog();
 
-
             // Open document 
             var fullroute = dlg.FileName;
             var dirName   = Path.GetDirectoryName(fullroute);
             var fileName  = Path.GetFileNameWithoutExtension(fullroute);
             var combine   = Path.Combine(dirName,fileName + ".json");
-            txt_box.Text  = fullroute;
-
+            
             // Copy temp file
-            File.Copy(fullroute, combine, true);
+            File.Copy(fullroute, combine);
 
             // Reading JSON
             string fileJSON = File.ReadAllText(combine);
@@ -62,21 +60,16 @@ namespace Reading_.Dyn
             // Extracting Data
             RootObject rs = JsonConvert.DeserializeObject<RootObject>(fileJSON);
 
-            //var versionDynamo = rs.Name;
-
-
-           
-            var versionDynamo = rs.View.Dynamo.Version;
-            // Delete temp File
-            //File.Delete(combine);
-
-            txt_box_ext.Text = combine;
-            txt_box_fileName.Text = fileName;
-            txt_box_dirName.Text = dirName;
-            pantalla.Text = fileJSON;
-
             // Show Dynamo Version
-            txt_box_nameppp.Text = versionDynamo;
+            var versionDynamo = rs.View.Dynamo.Version;
+
+            txt_box_Dynamo_Version.Text = versionDynamo;
+
+            //Delete json
+            File.Delete(combine);
+            
+
+            
                                                                
         }
 

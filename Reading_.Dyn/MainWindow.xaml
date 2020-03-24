@@ -5,19 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Reading_.Dyn"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="995.798">
-    <Grid Margin="0,0,40,0">
+        Title="MainWindow" Height="450" Width="627.731">
+    <Grid Margin="0,0,40,0" RenderTransformOrigin="0.606,0.519">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="141*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="289*"/>
-            <ColumnDefinition Width="307*"/>
+            <ColumnDefinition Width="278*"/>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="101*"/>
+            <ColumnDefinition Width="182*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_open" Content="Open File" HorizontalAlignment="Left" Margin="84,89,0,0" VerticalAlignment="Top" Width="132" Height="60" Click="btn_open_Click" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="txt_box" HorizontalAlignment="Left" Height="23" Margin="84,200,0,0" TextWrapping="Wrap" Text="Filepath" VerticalAlignment="Top" Width="483" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txt_box_ext" HorizontalAlignment="Left" Height="23" Margin="84,310,0,0" TextWrapping="Wrap" Text="changeExtension" VerticalAlignment="Top" Width="483" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txt_box_dirName" HorizontalAlignment="Left" Height="23" Margin="84,237,0,0" TextWrapping="Wrap" Text="dirName" VerticalAlignment="Top" Width="483" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txt_box_fileName" HorizontalAlignment="Left" Height="23" Margin="85,282,0,0" TextWrapping="Wrap" Text="FileName" VerticalAlignment="Top" Width="482" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="pantalla" HorizontalAlignment="Left" Height="336" Margin="142.647,28,0,0" TextWrapping="Wrap" Text="pantalla" VerticalAlignment="Top" Width="336" Grid.Column="1"/>
-        <TextBox x:Name="txt_box_nameppp" HorizontalAlignment="Left" Height="23" Margin="84,350,0,0" TextWrapping="Wrap" Text="Nameppp" VerticalAlignment="Top" Width="483" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_open" Content="Open File" HorizontalAlignment="Left" Margin="45,45,0,0" VerticalAlignment="Top" Width="132" Height="60" Click="btn_open_Click" FontSize="14" FontWeight="Bold" Grid.RowSpan="2"/>
+        <TextBox x:Name="txt_box_Dynamo_Version" HorizontalAlignment="Left" Height="23" Margin="230,64,0,0" TextWrapping="Wrap" Text="DynamoVersion" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="4" FontSize="14" Grid.RowSpan="2"/>
+        <Label x:Name="lbl_Dynamo_Version" Content="Dynamo Version:" HorizontalAlignment="Left" Margin="227,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="168" Height="26"/>
+        <Label x:Name="lbl_Packages" Content="Packages:" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top" Width="168" Height="26" Grid.Row="1"/>
+        <ListView x:Name="list" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="212" Margin="50,103,0,0" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Width="520">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>
