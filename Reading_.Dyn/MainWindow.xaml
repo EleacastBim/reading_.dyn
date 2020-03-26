@@ -23,10 +23,12 @@
         <TextBox x:Name="txt_box_Dynamo_Version" HorizontalAlignment="Left" Height="23" Margin="230,64,0,0" TextWrapping="Wrap" Text="DynamoVersion" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="4" FontSize="14" Grid.RowSpan="2"/>
         <Label x:Name="lbl_Dynamo_Version" Content="Dynamo Version:" HorizontalAlignment="Left" Margin="227,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="168" Height="26"/>
         <Label x:Name="lbl_Packages" Content="Packages:" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top" Width="168" Height="26" Grid.Row="1"/>
-        <ListView x:Name="list" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="212" Margin="50,103,0,0" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Width="520">
+        <ListView x:Name="listviewpackages" Margin="45,0,10,22" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="4" Height="224" VerticalAlignment="Bottom">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Version" Width="150" DisplayMemberBinding="{Binding Version}"/>
+                    <GridViewColumn Header="Enable" Width="150" DisplayMemberBinding="{Binding Enable}"/>
                 </GridView>
             </ListView.View>
         </ListView>

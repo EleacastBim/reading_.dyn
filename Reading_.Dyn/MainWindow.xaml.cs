@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 using System.IO;
 using Path = System.IO.Path;
 using System.Data;
-
+using ListViewItem = System.Windows.Controls.ListViewItem;
 
 namespace Reading_.Dyn
 {
@@ -29,6 +29,7 @@ namespace Reading_.Dyn
         public MainWindow()
         {
             InitializeComponent();
+                        
         }
 
         private void btn_open_Click(object sender, RoutedEventArgs e)
@@ -49,28 +50,52 @@ namespace Reading_.Dyn
             var fullroute = dlg.FileName;
             var dirName   = Path.GetDirectoryName(fullroute);
             var fileName  = Path.GetFileNameWithoutExtension(fullroute);
-            var combine   = Path.Combine(dirName,fileName + ".json");
+            var combine   = Path.Combine(dirName,fileName + ".txt");
             
             // Copy temp file
-            File.Copy(fullroute, combine);
+            File.Copy(fullroute, combine, true);
 
-            // Reading JSON
-            string fileJSON = File.ReadAllText(combine);
+            // ReadFile
+            string archiveFile = File.ReadAllText(combine);
 
-            // Extracting Data
-            RootObject rs = JsonConvert.DeserializeObject<RootObject>(fileJSON);
+            //Verify Data
+            bool b = archiveFile.Contains("<Workspace Version");
 
-            // Show Dynamo Version
-            var versionDynamo = rs.View.Dynamo.Version;
-
-            txt_box_Dynamo_Version.Text = versionDynamo;
-
-            //Delete json
+            // Delete test file
             File.Delete(combine);
-            
 
-            
-                                                               
+            if (b)
+            {
+                var combineXml = Path.Combine(dirName, fileName + ".xml");
+
+                // Convert XML to json
+
+
+            }
+            else
+            {
+                
+                var combineJson = Path.Combine(dirName, fileName + ".json");
+
+                // Extracting Data
+                RootObject rs = JsonConvert.DeserializeObject<RootObject>(archiveFile);
+
+                // Show Dynamo Version
+                var versionDynamo = rs.View.Dynamo.Version;
+                txt_box_Dynamo_Version.Text = versionDynamo;
+
+                // Show Packages version
+                var packages = rs.NodeLibraryDependencies;
+
+
+                // Charge Data at listview
+                listviewpackages.ItemsSource = packages;
+
+                // Delete File
+                File.Delete(combineJson);
+
+            }
+
         }
 
         
