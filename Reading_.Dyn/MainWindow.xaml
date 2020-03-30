@@ -32,6 +32,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox x:Name="txt_box_Dynamo_Version_xml" HorizontalAlignment="Left" Height="23" Margin="230,50,0,0" TextWrapping="Wrap" Text="DynamoVersion" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="4" FontSize="14" Grid.Row="1"/>
 
     </Grid>
 </Window>

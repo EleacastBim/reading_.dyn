@@ -18,6 +18,8 @@ using System.IO;
 using Path = System.IO.Path;
 using System.Data;
 using ListViewItem = System.Windows.Controls.ListViewItem;
+using System.Xml.Linq;
+
 
 namespace Reading_.Dyn
 {
@@ -32,6 +34,11 @@ namespace Reading_.Dyn
                         
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_open_Click(object sender, RoutedEventArgs e)
         {
 
@@ -62,14 +69,50 @@ namespace Reading_.Dyn
             bool b = archiveFile.Contains("<Workspace Version");
 
             // Delete test file
-            File.Delete(combine);
+            //File.Delete(combine);
 
             if (b)
             {
                 var combineXml = Path.Combine(dirName, fileName + ".xml");
 
-                // Convert XML to json
+                // Copy temp file
+                File.Copy(fullroute, combineXml, true);
 
+                // Create XML
+                XDocument xmlDoc = XDocument.Load(combineXml);
+
+                var query = from x in xmlDoc.Descendants("Workspace") select x;
+
+                IEnumerable<XAttribute> enumerable = query.Attributes();
+
+                List<XAttribute> list = enumerable.ToList();
+
+                
+
+                
+
+                //foreach(XElement usuario in usuarios.Elements(""))
+                //XmlDocument xmldoc = new XmlDocument();
+                //XmlDeclaration xmlDec = xmldoc.CreateXmlDeclaration("1.0", "UTF-8", null);
+                //xmldoc.Load(combineXml);
+
+                //XmlNode test;
+
+                //test.Attributes
+
+                //List<String> attributes = xmldoc.Attributes;
+
+
+
+                // Convert to json
+                //var jsonXml = JsonConvert.SerializeXmlNode(xmldoc);
+
+                //txt_box_Dynamo_Version_xml.Text = ;
+                
+                //Reading.Dyn.Root PP = JsonConvert.DeserializeObject<Reading.Dyn.Root>(jsonXml);
+
+                //var xmlVersionDynamo = PP.Workspace.@Version;
+                txt_box_Dynamo_Version_xml.Text = list[0].Value;
 
             }
             else
