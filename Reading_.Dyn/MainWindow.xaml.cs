@@ -21,6 +21,8 @@ using ListViewItem = System.Windows.Controls.ListViewItem;
 using System.Xml.Linq;
 
 
+
+
 namespace Reading_.Dyn
 {
     /// <summary>
@@ -31,7 +33,10 @@ namespace Reading_.Dyn
         public MainWindow()
         {
             InitializeComponent();
-                        
+            
+            //Main Windows Title
+            form.Title = "Dynamo File Reader";
+
         }
 
         /// <summary>
@@ -41,7 +46,7 @@ namespace Reading_.Dyn
         /// <param name="e"></param>
         private void btn_open_Click(object sender, RoutedEventArgs e)
         {
-
+            
             // Create and Configure open file dialog box
             OpenFileDialog dlg = new OpenFileDialog
             {
@@ -66,58 +71,55 @@ namespace Reading_.Dyn
             string archiveFile = File.ReadAllText(combine);
 
             //Verify Data
-            bool b = archiveFile.Contains("<Workspace Version");
+            bool verify = archiveFile.Contains("<Workspace Version=");
 
             // Delete test file
-            //File.Delete(combine);
+            File.Delete(combine);
 
-            if (b)
+            
+            //Conditional
+            if (verify)
             {
+                
                 var combineXml = Path.Combine(dirName, fileName + ".xml");
 
                 // Copy temp file
                 File.Copy(fullroute, combineXml, true);
 
-                // Create XML
+                // Create XML Document Object
                 XDocument xmlDoc = XDocument.Load(combineXml);
 
-                var query = from x in xmlDoc.Descendants("Workspace") select x;
+                //Query attributes of Workspace XmlNode
+                var queryWork = from x in xmlDoc.Descendants("Workspace") select x;
 
-                IEnumerable<XAttribute> enumerable = query.Attributes();
+                IEnumerable<XAttribute> enumerable = queryWork.Attributes();
 
                 List<XAttribute> list = enumerable.ToList();
 
-                
+                //Show version
+                txt_box_Dynamo_Version.Text = list[0].Value;
 
-                
+                // Show Packages version
+                var queryEle = from y in xmlDoc.Descendants("Elements") select y;
 
-                //foreach(XElement usuario in usuarios.Elements(""))
-                //XmlDocument xmldoc = new XmlDocument();
-                //XmlDeclaration xmlDec = xmldoc.CreateXmlDeclaration("1.0", "UTF-8", null);
-                //xmldoc.Load(combineXml);
+                IEnumerable<XNode> enumerable1 = queryEle.DescendantNodes();
+                List<XNode> nodes = enumerable1.ToList();
 
-                //XmlNode test;
-
-                //test.Attributes
-
-                //List<String> attributes = xmldoc.Attributes;
+                // Show Packages no info version
+                // Create a list of parts.
 
 
+                // Change visibility of elements
+                listViewPackages.Visibility = Visibility.Collapsed;
+                noAvailable.Visibility = Visibility.Visible;                
 
-                // Convert to json
-                //var jsonXml = JsonConvert.SerializeXmlNode(xmldoc);
-
-                //txt_box_Dynamo_Version_xml.Text = ;
-                
-                //Reading.Dyn.Root PP = JsonConvert.DeserializeObject<Reading.Dyn.Root>(jsonXml);
-
-                //var xmlVersionDynamo = PP.Workspace.@Version;
-                txt_box_Dynamo_Version_xml.Text = list[0].Value;
+                // Delete File
+                File.Delete(combineXml);
 
             }
             else
             {
-                
+
                 var combineJson = Path.Combine(dirName, fileName + ".json");
 
                 // Extracting Data
@@ -132,12 +134,51 @@ namespace Reading_.Dyn
 
 
                 // Charge Data at listview
-                listviewpackages.ItemsSource = packages;
+                listViewPackages.ItemsSource = packages;
+
+                // Change visility of elements
+                listViewPackages.Visibility = Visibility.Visible;
+                noAvailable.Visibility = Visibility.Collapsed;
 
                 // Delete File
                 File.Delete(combineJson);
 
             }
+
+
+            //Read dynamo version label
+            string result = txt_box_Dynamo_Version.Text;
+
+
+            //Revit Version compatibility previus operations
+            char[] point = { '.' };
+            string [] parts = result.Split(point);
+
+            string chain = String.Concat(parts);
+
+            string chainCut = chain.Remove(3);
+
+            int versionNumber = Convert.ToInt32(chainCut);
+
+            //Revit Version compatibility                  
+            if (versionNumber >= 133 & versionNumber <=200) 
+            {
+                txt_box_Dynamo_Compatibility.Text = "2017-2019";
+            }
+            else if (versionNumber == 122)
+            {
+                txt_box_Dynamo_Compatibility.Text = "2015";
+            } 
+            else if (versionNumber == 132)
+            {
+                txt_box_Dynamo_Compatibility.Text = "2016";
+            }
+            else 
+            {
+                txt_box_Dynamo_Compatibility.Text = "2018-2020";
+            }
+
+
 
         }
 
