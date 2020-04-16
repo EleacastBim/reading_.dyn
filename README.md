@@ -1,2 +1,3 @@
 # reading_.dyn
- proyecto de curso - lee archivos .dyn
+DYNAMO FILE READER
+ This application reads .dyn files and displays version and packages it uses without having to run the application
