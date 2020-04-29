@@ -40,7 +40,7 @@ namespace Reading_.Dyn
         }
 
         /// <summary>
-        /// 
+        /// Buttom
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -77,7 +77,7 @@ namespace Reading_.Dyn
             File.Delete(combine);
 
             
-            //Conditional
+            //Conditional - Xml or Json?
             if (verify)
             {
                 
@@ -161,24 +161,38 @@ namespace Reading_.Dyn
             int versionNumber = Convert.ToInt32(chainCut);
 
             //Revit Version compatibility                  
-            if (versionNumber >= 133 & versionNumber <=200) 
+            if (versionNumber >= 061 & versionNumber <=063) 
             {
-                txt_box_Dynamo_Compatibility.Text = "2017-2019";
+                txt_box_Dynamo_Compatibility.Text = "2013-2014";
             }
-            else if (versionNumber == 122)
+            else if (versionNumber >= 064 & versionNumber <= 070)
             {
-                txt_box_Dynamo_Compatibility.Text = "2015";
+                txt_box_Dynamo_Compatibility.Text = "2014";
             } 
-            else if (versionNumber == 132)
+            else if (versionNumber == 071)
             {
-                txt_box_Dynamo_Compatibility.Text = "2016";
+                txt_box_Dynamo_Compatibility.Text = "2014-2015";
             }
-            else 
+            else if (versionNumber >= 072 & versionNumber <= 082)
             {
-                txt_box_Dynamo_Compatibility.Text = "2018-2020";
+                txt_box_Dynamo_Compatibility.Text = "2014-2015-2016";
             }
-
-
+            else if (versionNumber >= 083 & versionNumber <= 089)
+            {
+                txt_box_Dynamo_Compatibility.Text = "2015-2016";
+            }
+            else if (versionNumber >= 090 & versionNumber <= 121)
+            {
+                txt_box_Dynamo_Compatibility.Text = "2015-...-2019";
+            }
+            else if (versionNumber >= 122 & versionNumber <= 132)
+            {
+                txt_box_Dynamo_Compatibility.Text = "2016-...-2019";
+            }
+            else if (versionNumber >= 133 & versionNumber <= 200)
+            {
+                txt_box_Dynamo_Compatibility.Text = "2017-2018-2019";
+            }
 
         }
 
